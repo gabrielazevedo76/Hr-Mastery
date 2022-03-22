@@ -1,0 +1,96 @@
+/* -------------------------------
+# START CONFIGURATION
+----------------------------------*/
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+/* -------------------------------
+# FOOTER
+----------------------------------*/
+
+.wrapper {
+  min-height: 100%;
+  margin-bottom: -50px;
+}
+
+#footer,
+.push {
+  height: 50px;
+}
+
+/* -------------------------------
+# OTHER PARTS
+----------------------------------*/
+
+#navbar-content {
+  text-align: center;
+  color: #fff;
+  margin-left: 25px;
+}
+
+.block-position {
+  width: 80%;
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+/* -------------------------------
+# Btn Job opportunities (home.html)
+----------------------------------*/
+
+#btn-job {
+  width: 270px;
+  font-size: 22px;
+  border-radius: 30px;
+  margin-bottom: -50px;
+}
+
+/* -------------------------------
+# Labels with icon (left side of inputs)
+----------------------------------*/
+.side-label {
+  width: 50px;
+}
+
+/* -------------------------------
+# Button inside the modals popup
+----------------------------------*/
+
+.btn-cancel, .btn-send {
+  width: 65px;
+}
+
+/* -------------------------------
+# SPINNER FRONTEND (ANIMATION)
+----------------------------------*/
+
+#preloader {
+  border: 6px solid #e5e5e5;
+  border-radius: 50%;
+  border-top-color: #ffc107;
+  position: absolute;
+  top: 50%;
+  left: calc(50% - 32px);
+  width: 55px;
+  height: 55px;
+  z-index: 1;
+  animation: preloader 1.2s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes preloader {
+  to{
+    transform: rotate(360deg);
+    opacity: 0;
+  }
+}
