@@ -94,3 +94,48 @@ body {
     opacity: 0;
   }
 }
+
+/* -------------------------------
+# CUSTOM SWEETALERT
+----------------------------------*/
+/* All texts centered */
+.swal-text {
+  text-align: center;
+}
+
+/* Icon settings */
+.swal-icon--success:before,
+.swal-icon--succes:after,
+.swal-icon--succes__hide-corners {
+  background: none !important;
+}
+
+.swal-icon--success {
+  /* Color of ring */
+  border-color: orange;
+}
+
+.swal-icon--success__line {
+  /* Animation */
+  background-color: orange;
+}
+
+/* Button settings */
+.swal-button {
+  padding: 7px 19px;
+  border-radius: 5px;
+  background-color: black;
+  border: 1px solid black;
+}
+
+.swal-button:focus {
+  /* Remove the silver border aroud the native button */
+  box-shadow: none;
+}
+
+.swal-button:not([disabled]):hover {
+  /* Hover effect */
+  background: transparent;
+  color: black;
+  border: 1px solid black;
+}

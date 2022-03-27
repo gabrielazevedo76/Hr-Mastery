@@ -6,8 +6,11 @@
 <!-- Modal Title -->
 {% block modal-title %} Backend Opportunities {% endblock modal-title %}
 
+<!-- Form action-->
+{% block action %} action="/email_backend" {% endblock action %}
+
 <!-- Form Validation -->
-{% block validation %} onsubmit="return validateForm()" {% endblock validation%}
+{% block validation %} onsubmit="return validateForm2()" {% endblock validation%}
 
 <!-- Input ID -->
 {% block id-name %} id="name2" {% endblock id-name %}
