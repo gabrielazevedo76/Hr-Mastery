@@ -66,11 +66,18 @@
 
   <!-- Message from backend (success) -->
   {% for message in messages %}
-    {% if message.tags == 'success' %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- (Success)-->
+    {% if message.tags == 'success' %}
     <script>
       var mesg = "{{ message }}"
       swal("Perfect!", mesg, "success")
+    </script>
+    <!-- (Error)-->
+    {% elif message.tags == 'error' %}
+    <script>
+      var mesg = "{{ message }}"
+      swal("Sorry!", mesg, "error")
     </script>
     {% endif %}
   {% endfor %}
