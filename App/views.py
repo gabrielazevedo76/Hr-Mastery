@@ -1,26 +1,37 @@
 from django.shortcuts import render
 # New imports
-from django.http import HttpResponseRedirect # Redirect the page after submit
-from django.contrib import messages # Return messages
-from django.core.mail import EmailMultiAlternatives # Requered to send emails
-from django.template import loader # Render templates on email body
-from App.models import Registered_email # Informations in models.py
+from django.http import HttpResponseRedirect  # Redirect the page after submit
+from django.contrib import messages  # Return messages
+from django.core.mail import EmailMultiAlternatives  # Requered to send emails
+from django.template import loader  # Render templates on email body
+from App.models import Registered_email  # Informations in models.py
+# Login required to access private pages
+from django.contrib.auth.decorators import login_required
+# Destry section after logout
+from django.views.decorators.cache import cache_control
 
+# ========== FRONTEND SECTION ==========
 # Function to render home page
+
+
 def home(request):
     return render(request, "home.html")
 
 # Function to render opportunities page
+
+
 def opportunities(request):
     return render(request, "opportunities.html")
 
 # ========== RESUMES ==========
 
 # Function to send frontend form
+
+
 def email_frontend(request):
     if request.method == "POST":
 
-        #Check if email exist in DB
+        # Check if email exist in DB
         email = request.POST['email']
 
         if Registered_email.objects.filter(email=email).exists():
@@ -39,22 +50,22 @@ def email_frontend(request):
             contact = Registered_email()
             contact.email = email
             contact.save()
-        
+
             template = loader.get_template('resume_form.txt')
             context = {
-                'name' : name,
-                'age' : age,
-                'email' : email,
-                'phone' : phone,
-                'address' : address,
-                'experience' : experience,
-                'skills' : skills,
+                'name': name,
+                'age': age,
+                'email': email,
+                'phone': phone,
+                'address': address,
+                'experience': experience,
+                'skills': skills,
             }
             message = template.render(context)
             email = EmailMultiAlternatives(
                 "Frontend - Candidate", message,
                 "Frontend Opportunity",
-                ['bestofdjango@gmail.com',]
+                ['bestofdjango@gmail.com', ]
             )
             email.content_subtype = 'html'
             file = request.FILES['file']
@@ -64,9 +75,11 @@ def email_frontend(request):
             return HttpResponseRedirect('/')
 
 # Function to send backend form
+
+
 def email_backend(request):
 
-    #Check if email exist in DB
+    # Check if email exist in DB
     email = request.POST['email']
 
     if Registered_email.objects.filter(email=email).exists():
@@ -86,22 +99,22 @@ def email_backend(request):
             contact = Registered_email()
             contact.email = email
             contact.save()
-        
+
             template = loader.get_template('resume_form.txt')
             context = {
-                'name' : name,
-                'age' : age,
-                'email' : email,
-                'phone' : phone,
-                'address' : address,
-                'experience' : experience,
-                'skills' : skills,
+                'name': name,
+                'age': age,
+                'email': email,
+                'phone': phone,
+                'address': address,
+                'experience': experience,
+                'skills': skills,
             }
             message = template.render(context)
             email = EmailMultiAlternatives(
                 "Backend - Candidate", message,
                 "Backend Opportunity",
-                ['bestofdjango@gmail.com',]
+                ['bestofdjango@gmail.com', ]
             )
             email.content_subtype = 'html'
             file = request.FILES['file']
@@ -111,9 +124,11 @@ def email_backend(request):
             return HttpResponseRedirect('/')
 
 # Function to send fullstack form
+
+
 def email_fullstack(request):
 
-    #Check if email exist in DB
+    # Check if email exist in DB
     email = request.POST['email']
 
     if Registered_email.objects.filter(email=email).exists():
@@ -128,7 +143,7 @@ def email_fullstack(request):
             address = request.POST.get('address')
             experience = request.POST.get('experience')
             skills = request.POST.get('skills')
-        
+
             # Register inside DB
             contact = Registered_email()
             contact.email = email
@@ -136,19 +151,19 @@ def email_fullstack(request):
 
             template = loader.get_template('resume_form.txt')
             context = {
-                'name' : name,
-                'age' : age,
-                'email' : email,
-                'phone' : phone,
-                'address' : address,
-                'experience' : experience,
-                'skills' : skills,
+                'name': name,
+                'age': age,
+                'email': email,
+                'phone': phone,
+                'address': address,
+                'experience': experience,
+                'skills': skills,
             }
             message = template.render(context)
             email = EmailMultiAlternatives(
                 "Fullstack - Candidate", message,
                 "Fullstack Opportunity",
-                ['bestofdjango@gmail.com',]
+                ['bestofdjango@gmail.com', ]
             )
             email.content_subtype = 'html'
             file = request.FILES['file']
@@ -156,3 +171,10 @@ def email_fullstack(request):
             email.send()
             messages.success(request, 'Fullstack resume sent successfully!')
             return HttpResponseRedirect('/')
+
+# =================== BACKEND SECTION ===================
+
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
+@login_required(login_url="login")
+def backend(request):
+    return render(request, "backend.html")

@@ -130,3 +130,7 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'bestofdjango@gmail.com'
 EMAIL_HOST_PASSWORD = 'sorveteempotedefeijao'
 EMAIL_USE_TLS = True
+
+# LOGIN
+LOGIN_REDIRECT_URL = 'backend'
+LOGOUT_REDIRECT_URL = 'home'

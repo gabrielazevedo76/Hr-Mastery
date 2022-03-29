@@ -23,6 +23,23 @@ body {
 .push {
   height: 50px;
 }
+/* -------------------------------
+# LOGIN
+----------------------------------*/
+
+#card-login {
+  width: 450px;
+}
+
+.login-border {
+  border-top: .4rem solid #ffc107 !important;
+  border-radius: 10px !important;
+}
+
+#btn-enter {
+  border-radius: 15px;
+  font-size: 16px;
+}
 
 /* -------------------------------
 # OTHER PARTS
@@ -66,13 +83,21 @@ body {
 # Button inside the modals popup
 ----------------------------------*/
 
-.btn-cancel, .btn-send {
-  width: 65px;
+.btn-cancel, .btn-send, .btn-modal{
+  width: 70px;
 }
 
 #back {
   margin-right: 25px;
   font-size: 25px;
+}
+
+.watermark {
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
 }
 
 /* -------------------------------
@@ -215,6 +240,9 @@ body {
   #back {
     font-size: 20px;
     margin-left: 15px;
+  }
+  #card-login {
+    width: 95%;
   }
 
 }
