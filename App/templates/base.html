@@ -123,6 +123,76 @@
     })
   </script>
 
+  <!-- Ajax Spinner -->
+  <script>
+    jQuery(function($) {
+      $(document).ajaxSend(function() {
+        $("#bg-spinner").fadeIn(500);
+      });
+
+      $(".btn-send").click(function() {
+        $.ajax({
+          type: 'GET',
+          success: function (data) {
+            var d = $.parseJSON(data);
+            alert(d.Test);
+          }
+        }).done(function() {
+          setTimeout(function() {
+            $("#bg-spinner").fadeOut(500);
+          }, 700)
+        });
+      });
+    });
+    // Close modal (after 'send button is clicked')
+    $(".btn-send").click(function() {
+      var name = $("#name").val();
+      var age = $("#age").val();
+      var email = $("#email").val();
+      var phone = $("#phone").val();
+      var address = $("#address").val();
+      var experience = $("#experience").val();
+      var skills = $("#skills").val();
+      var file = $("#file").val();
+
+      var name2 = $("#name2").val();
+      var age2 = $("#age2").val();
+      var email2 = $("#email2").val();
+      var phone2 = $("#phone2").val();
+      var address2 = $("#address2").val();
+      var experience2 = $("#experience2").val();
+      var skills2 = $("#skills2").val();
+      var file2 = $("#file2").val();
+
+      var name3 = $("#name3").val();
+      var age3 = $("#age3").val();
+      var email3 = $("#email3").val();
+      var phone3 = $("#phone3").val();
+      var address3 = $("#address3").val();
+      var experience3 = $("#experience3").val();
+      var skills3 = $("#skills3").val();
+      var file3 = $("#file3").val();
+
+      if( (name != '') &&  (age != '') && (email != '') && (phone != '') &&
+      (address != '') && (experience != '') && (skills != '') && (file != ''))
+      {
+        $('.close-modal').modal('hide');
+      }
+
+      if( (name2 != '') &&  (age2 != '') && (email2 != '') && (phone2 != '') &&
+      (address2 != '') && (experience2 != '') && (skills2 != '') && (file2 != ''))
+      {
+        $('.close-modal').modal('hide');
+      }
+
+      if( (name3 != '') &&  (age3 != '') && (email3 != '') && (phone3 != '') &&
+      (address3 != '') && (experience3 != '') && (skills3 != '') && (file3 != ''))
+      {
+        $('.close-modal').modal('hide');
+      }
+    })
+  </script>
+
 </body>
 
 </html>

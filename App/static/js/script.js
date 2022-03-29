@@ -29,53 +29,66 @@ function validateForm() {
   const file = document.getElementById("file").value;
 
   if(name == ""){
-    swal("Opss !", "Name field cannot be empty.", "error");
+    document.getElementById("bg-spinner").style.display = "none";
+    swal("Opsss !", "Name field cannot be empty.", "error")
     return false;
   }
   else if (name == name.toUpperCase()){
+
+    document.getElementById("bg-spinner").style.display = "none";
     document.getElementById('name').value='';
     swal("Opss !", "Name field cannot be UPPERCASE.", "info");
     return false;
   }
   else if (name.split(' ').length < 2){
+    document.getElementById("bg-spinner").style.display = "none";
     document.getElementById('name').value='';
     swal("Opss !", "Your full name in required.", "info");
     return false;
   }
   else if (age == ""){
+    document.getElementById("bg-spinner").style.display = "none";
     swal("opss !", "age field cannot be empty.", "error");
     return false;
   }
   else if ((age < 18) || (age > 50)){
+    document.getElementById("bg-spinner").style.display = "none";
     swal("Opss !", "This job requires you to be between 18 and 50 years old.", "info");
     return false;
   }
   else if (email == ""){
+    document.getElementById("bg-spinner").style.display = "none";
     swal("Opss !", "Email field cannot be empty.", "error");
     return false;
   }
   else if (!(validateEmail(email))){
+    document.getElementById("bg-spinner").style.display = "none";
     document.getElementById('email').value='';
     swal("Opss !", "Put a valid email address.", "info");
     return false;
   }
   else if (phone == ""){
+    document.getElementById("bg-spinner").style.display = "none";
     swal("Opss !", "Phone field cannot be empty.", "error");
     return false;
   }
   else if (address == ""){
+    document.getElementById("bg-spinner").style.display = "none";
     swal("Opss !", "Address field cannot be empty.", "error");
     return false;
   }
   else if (experience == ""){
+    document.getElementById("bg-spinner").style.display = "none";
     swal("Opss !", "Experience field cannot be empty.", "error");
     return false;
   }
   else if (skills == ""){
+    document.getElementById("bg-spinner").style.display = "none";
     swal("Opss !", "Skills field cannot be empty.", "error");
     return false;
   }
   else if (file == ""){
+    document.getElementById("bg-spinner").style.display = "none";
     swal("Opss !", "File field cannot be empty.", "error");
     return false;
   }
@@ -101,53 +114,65 @@ function validateForm2() {
   const file = document.getElementById("file2").value;
 
   if(name == ""){
+    document.getElementById("bg-spinner").style.display = "none";
     swal("Opss !", "Name field cannot be empty.", "error");
     return false;
   }
   else if (name == name.toUpperCase()){
+    document.getElementById("bg-spinner").style.display = "none";
     document.getElementById('name2').value='';
     swal("Opss !", "Name field cannot be UPPERCASE.", "info");
     return false;
   }
   else if (name.split(' ').length < 2){
+    document.getElementById("bg-spinner").style.display = "none";
     document.getElementById('name2').value='';
     swal("Opss !", "Your full name in required.", "info");
     return false;
   }
   else if (age == ""){
+    document.getElementById("bg-spinner").style.display = "none";
     swal("opss !", "age field cannot be empty.", "error");
     return false;
   }
   else if ((age < 18) || (age > 50)){
+    document.getElementById("bg-spinner").style.display = "none";
     swal("Opss !", "This job requires you to be between 18 and 50 years old.", "info");
     return false;
   }
   else if (email == ""){
+    document.getElementById("bg-spinner").style.display = "none";
     swal("Opss !", "Email field cannot be empty.", "error");
     return false;
   }
   else if (!(validateEmail2(email))){
+    document.getElementById("bg-spinner").style.display = "none";
     document.getElementById('email2').value='';
     swal("Opss !", "Put a valid email address.", "info");
     return false;
   }
   else if (phone == ""){
+    document.getElementById("bg-spinner").style.display = "none";
     swal("Opss !", "Phone field cannot be empty.", "error");
     return false;
   }
   else if (address == ""){
+    document.getElementById("bg-spinner").style.display = "none";
     swal("Opss !", "Address field cannot be empty.", "error");
     return false;
   }
   else if (experience == ""){
+    document.getElementById("bg-spinner").style.display = "none";
     swal("Opss !", "Experience field cannot be empty.", "error");
     return false;
   }
   else if (skills == ""){
+    document.getElementById("bg-spinner").style.display = "none";
     swal("Opss !", "Skills field cannot be empty.", "error");
     return false;
   }
   else if (file == ""){
+    document.getElementById("bg-spinner").style.display = "none";
     swal("Opss !", "File field cannot be empty.", "error");
     return false;
   }
@@ -173,53 +198,65 @@ function validateForm3() {
   const file = document.getElementById("file3").value;
 
   if(name == ""){
+    document.getElementById("bg-spinner").style.display = "none";
     swal("Opss !", "Name field cannot be empty.", "error");
     return false;
   }
   else if (name == name.toUpperCase()){
+    document.getElementById("bg-spinner").style.display = "none";
     document.getElementById('name3').value='';
     swal("Opss !", "Age field cannot be UPPERCASE.", "info");
     return false;
   }
   else if (name.split(' ').length < 2){
+    document.getElementById("bg-spinner").style.display = "none";
     document.getElementById('name3').value='';
     swal("Opss !", "Your full name in required.", "info");
     return false;
   }
   else if (age == ""){
+    document.getElementById("bg-spinner").style.display = "none";
     swal("opss !", "age field cannot be empty.", "error");
     return false;
   }
   else if ((age < 18) || (age > 50)){
+    document.getElementById("bg-spinner").style.display = "none";
     swal("Opss !", "This job requires you to be between 18 and 50 years old.", "info");
     return false;
   }
   else if (email == ""){
+    document.getElementById("bg-spinner").style.display = "none";
     swal("Opss !", "Email field cannot be empty.", "error");
     return false;
   }
   else if (!(validateEmail3(email))){
+    document.getElementById("bg-spinner").style.display = "none";
     document.getElementById('email3').value='';
     swal("Opss !", "Put a valid email address.", "info");
     return false;
   }
   else if (phone == ""){
+    document.getElementById("bg-spinner").style.display = "none";
     swal("Opss !", "Phone field cannot be empty.", "error");
     return false;
   }
   else if (address == ""){
+    document.getElementById("bg-spinner").style.display = "none";
     swal("Opss !", "Address field cannot be empty.", "error");
     return false;
   }
   else if (experience == ""){
+    document.getElementById("bg-spinner").style.display = "none";
     swal("Opss !", "Experience field cannot be empty.", "error");
     return false;
   }
   else if (skills == ""){
+    document.getElementById("bg-spinner").style.display = "none";
     swal("Opss !", "Skills field cannot be empty.", "error");
     return false;
   }
   else if (file == ""){
+    document.getElementById("bg-spinner").style.display = "none";
     swal("Opss !", "File field cannot be empty.", "error");
     return false;
   }
