@@ -88,6 +88,8 @@
 
     <!-- Others -->
     {% include 'modals/others/logout.html' %}
+    {% include 'modals/others/msgForm.html' %}
+    {% include 'modals/others/msgSupport.html' %}
 
   </div> <!-- END // wrapper -->
 
@@ -104,7 +106,7 @@
         <a href="{% url 'backend' %}" class="btn btn-warning">Login</a>
         <a href="#" class="btn btn-secondary">Faq</a>
         <hr>
-        <a href="#" class="btn btn-outline-dark">
+        <a href="{% url 'support' %}" class="btn btn-outline-dark">
           <i class="fas fa-headset"></i>&nbsp;&nbsp; Support
         </a>
         {% endblock sidebar-links %}

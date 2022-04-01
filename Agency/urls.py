@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.urls import path, include
+from App.models import Support
 from App import views
 
 urlpatterns = [
@@ -12,6 +13,8 @@ urlpatterns = [
     path('opportunities/', views.opportunities, name="opportunities"),
     # Path to Login/logout
     path('login/', include('django.contrib.auth.urls')),
+    # Path to Support
+    path('support/', views.support, name="support"),
 
     # ========== SEND EMAIL ==========
     # Path to send frontend form

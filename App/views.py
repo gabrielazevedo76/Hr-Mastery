@@ -4,7 +4,7 @@ from django.http import HttpResponseRedirect  # Redirect the page after submit
 from django.contrib import messages  # Return messages
 from django.core.mail import EmailMultiAlternatives  # Requered to send emails
 from django.template import loader  # Render templates on email body
-from App.models import Registered_email  # Informations in models.py
+from App.models import Registered_email, Support  # Informations in models.py
 # Login required to access private pages
 from django.contrib.auth.decorators import login_required
 # Destry section after logout
@@ -12,21 +12,47 @@ from django.views.decorators.cache import cache_control
 
 # ========== FRONTEND SECTION ==========
 # Function to render home page
-
-
 def home(request):
     return render(request, "home.html")
 
 # Function to render opportunities page
-
-
 def opportunities(request):
     return render(request, "opportunities.html")
+
+# Support
+def support(request):
+    if request.method == "POST":
+
+        #Check if email exists
+        email = request.POST['email']
+
+        if Support.objects.filter(email = email).exists():
+            messages.info(request, "You already have a request in progress !")
+            return HttpResponseRedirect('/support')
+        else:
+            support = Support()
+
+            message = request.POST.get('message')
+            terms = request.POST.get('terms')
+            person = request.POST.get('person')
+            option = request.POST.get('option')
+            email = request.POST.get('email')
+            
+            support.message = message
+            support.terms = terms
+            support.person = person
+            support.option = option
+            support.email = email
+
+            support.save()
+            messages.success(request, 'We will review your request !')
+            return HttpResponseRedirect('/')
+    else:
+        return render(request, "support.html")
 
 # ========== RESUMES ==========
 
 # Function to send frontend form
-
 
 def email_frontend(request):
     if request.method == "POST":
