@@ -107,7 +107,7 @@
         <a href="{% url 'backend' %}" class="btn btn-warning">Login</a>
         <a href="#" class="btn btn-secondary">Faq</a>
         <hr>
-        <a href="{% url 'support' %}" class="btn btn-outline-dark">
+        <a class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#popSupportModal">
           <i class="fas fa-headset"></i>&nbsp;&nbsp; Support
         </a>
         {% endblock sidebar-links %}
@@ -152,6 +152,20 @@
     <script>
       $(document).ready(function() {
         $("#msgSupportModal").modal('show');
+      })
+    </script>
+    {% endif %}
+  {% endfor %}
+
+  <!--Candidate message (duplicated resume) -->
+  {% for message in messages %}
+    {% if message.tags == 'error' %}
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>     
+
+    <script>
+      $(document).ready(function() {
+        $("#msgFormModal").modal('show');
       })
     </script>
     {% endif %}
@@ -295,6 +309,26 @@
       });
       $('select[name="person"]').trigger('change');
     });
+  </script>
+
+  <!-- Script to hide the sidbar when the button is clicked -->
+  <script>
+    $(document).ready(function() {
+      jQuery("#offcanvasRight, .offcanvas-body a").click(function() {
+        console.log($(this).attr('href'));
+        jQuery('.offcanvas').offcanvas('hide');
+      })
+    })
+  </script>
+
+  <!-- Dependent select option -->
+  <script>
+    function req(){
+      if(document.getElementById('choose').value!='')
+        document.getElementById('dependent').disabled = false;
+      else
+        document.getElementById('dependent').disabled = true;
+    }
   </script>
 
 </body>

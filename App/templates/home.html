@@ -11,5 +11,36 @@
     Job Opportunities
   </a>
 </div>
+<!-- Message -->
+<div>
+  <button class="btn btn-warning text-dark pulse" data-bs-toggle="modal" data-bs-target="#messageModal">
+    <i class="fas fa-envelope fa-2x"></i>
+  </button>
+</div>
+
+<div class="modal fade" id="messageModal" tabindex="-1" aria-labelledby="messageModalLabel" aria-hidden="true">
+  <div class="modal-dialog" id="modal-message">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="messageModalLabel"> <i class="fas fa-envelope"></i>&nbsp;&nbsp; Message</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form method="POST" action="#" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="modal-body">
+          <div class="form-group">
+            <textarea class="form-control" name="message" rows="10" maxlength="1000" required
+            placeholder="Send us a message..."></textarea>
+          </div> 
+          <div class="d-grid gap-2 mb-3 mt-3">
+            <button class="btn btn-warning" type="submit"> Send message &nbsp;&nbsp;
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
 
 {% endblock content%}

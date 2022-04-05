@@ -42,6 +42,44 @@ body {
 }
 
 /* -------------------------------
+# PULSE EFFECTS & ICON
+----------------------------------*/
+.pulse {
+  width: 65px;
+  height: 65px;
+  border-radius: 50% !important;
+  position: fixed;
+  right: 30px;
+  bottom: 75px;
+  padding: 5px;
+  animation: animate 3s linear infinite;
+}
+
+@keyframes animate
+{
+  0%
+  {
+    box-shadow: 0 0 0 0 rgba(218, 165, 32, .7), 0 0 0 0 rgba(218, 165, 32, .7);
+  }
+
+  40%
+  {
+    box-shadow: 0 0 0 30px rgba(255, 109, 74, 0), 0 0 0 0 rgba(218, 165, 32, .7);
+  }
+
+  80%
+  {
+    box-shadow: 0 0 0 50px rgba(255, 109, 74, 0), 0 0 0 30px rgba(255, 109, 74, 0);
+  }
+
+  100%
+  {
+    box-shadow: 0 0 0 0 rgba(255, 109, 74, 0), 0 0 0 30px rgba(255, 109, 74, 0);
+  }
+
+}
+
+/* -------------------------------
 # OTHER PARTS
 ----------------------------------*/
 
@@ -98,6 +136,13 @@ body {
   left: 50%;
   margin-right: -50%;
   transform: translate(-50%, -50%);
+}
+
+#modal-message {
+  position: absolute;
+  bottom: 40px;
+  right: 20px;
+  width: 400px;
 }
 
 /* -------------------------------
@@ -244,5 +289,9 @@ body {
   #card-login {
     width: 95%;
   }
-
+  #modal-message {
+    bottom: 55px;
+    right: 12px;
+    width: 90%;
+  }
 }

@@ -45,7 +45,7 @@
             </div>
 
             <div class="mb-3">
-                <select name="person" class="form-select" required>
+                <select name="person" class="form-select" id="choose" onchange="req()" required>
                     <option value="">Who are you ?</option>
                     <option value="" disabled></option>
                     <option value="Employee">Employee</option>
@@ -55,7 +55,7 @@
             </div>
 
             <div class="mb-3">
-                <select name="option" class="form-select" required>
+                <select name="option" id="dependent" class="form-select" required>
                     <option value="">Select a subject</option>
                     <option value="" disabled></option>
                     <option value="I lost my account">I lost my account</option>
