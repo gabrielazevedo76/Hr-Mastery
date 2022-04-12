@@ -4,7 +4,7 @@ from django.http import HttpResponseRedirect  # Redirect the page after submit
 from django.contrib import messages  # Return messages
 from django.core.mail import EmailMultiAlternatives  # Requered to send emails
 from django.template import loader  # Render templates on email body
-from App.models import Registered_email, Support  # Informations in models.py
+from App.models import Registered_email, Support, Message  # Informations in models.py
 # Login required to access private pages
 from django.contrib.auth.decorators import login_required
 # Destry section after logout
@@ -18,6 +18,10 @@ def home(request):
 # Function to render opportunities page
 def opportunities(request):
     return render(request, "opportunities.html")
+
+# Function to render FAQ page
+def faq(request):
+    return render(request, "faq.html")
 
 # Support
 def support(request):
@@ -49,6 +53,19 @@ def support(request):
             return HttpResponseRedirect('/')
     else:
         return render(request, "support.html")
+    
+# MESSAGE
+def add_message(request):
+    if request.method == "POST":
+        if request.POST.get("message"):
+            message = Message()
+            message.text = request.POST.get("message")
+            message.save()
+            messages.success(request, 'Message sent successfully!')
+            return HttpResponseRedirect('/')
+    else:
+        return render(request, 'home.html')
+            
 
 # ========== RESUMES ==========
 

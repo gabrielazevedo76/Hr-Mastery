@@ -39,3 +39,16 @@ class Support(models.Model):
 
     def __str__(self):
         return self.person
+
+
+# 3) MESSAGE
+class Message(models.Model):
+    SITUATION = {
+        ('Done', 'Done'),
+        ('Pending', 'Pending'),
+    }
+
+    id = models.IntegerField(primary_key=True)
+    text = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    situation = models.CharField(max_length=50, null=True, choices=SITUATION, default='Pending')

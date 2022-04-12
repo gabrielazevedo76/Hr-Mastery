@@ -294,4 +294,14 @@ body {
     right: 12px;
     width: 90%;
   }
+  .txt-sm {
+    font-size: 10px !important;
+  }
+  .pulse {
+    width: 45px;
+    height: 45px;
+    right: 15px;
+    bottom: 62px;
+    text-align: center;
+  }
 }

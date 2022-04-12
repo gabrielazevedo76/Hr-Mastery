@@ -13,7 +13,7 @@
 </div>
 <!-- Message -->
 <div>
-  <button class="btn btn-warning text-dark pulse" data-bs-toggle="modal" data-bs-target="#messageModal">
+  <button class="btn btn-warning text-dark pulse txt-sm" data-bs-toggle="modal" data-bs-target="#messageModal">
     <i class="fas fa-envelope fa-2x"></i>
   </button>
 </div>
@@ -25,7 +25,7 @@
         <h5 class="modal-title" id="messageModalLabel"> <i class="fas fa-envelope"></i>&nbsp;&nbsp; Message</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <form method="POST" action="#" enctype="multipart/form-data">
+      <form method="POST" action="add_message/" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="modal-body">
           <div class="form-group">
