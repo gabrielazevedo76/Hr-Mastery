@@ -265,6 +265,90 @@ function validateForm3() {
   }
 }
 
+// c) Fullstack form
+function validateEmail4(email) {
+  const regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+  return regex.test(email);
+}
+
+function validateForm4() {
+  const name = document.getElementById("name4").value;
+  const age = document.getElementById("age4").value;
+  const email = document.getElementById("email4").value;
+  const phone = document.getElementById("phone4").value;
+  const address = document.getElementById("address4").value;
+  const experience = document.getElementById("experience4").value;
+  const skills = document.getElementById("skills4").value;
+  const file = document.getElementById("file4").value;
+
+  if(name == ""){
+    document.getElementById("bg-spinner").style.display = "none";
+    swal("Opss !", "Name field cannot be empty.", "error");
+    return false;
+  }
+  else if (name == name.toUpperCase()){
+    document.getElementById("bg-spinner").style.display = "none";
+    document.getElementById('name4').value='';
+    swal("Opss !", "Age field cannot be UPPERCASE.", "info");
+    return false;
+  }
+  else if (name.split(' ').length < 2){
+    document.getElementById("bg-spinner").style.display = "none";
+    document.getElementById('name4').value='';
+    swal("Opss !", "Your full name in required.", "info");
+    return false;
+  }
+  else if (age == ""){
+    document.getElementById("bg-spinner").style.display = "none";
+    swal("opss !", "age field cannot be empty.", "error");
+    return false;
+  }
+  else if ((age < 18) || (age > 50)){
+    document.getElementById("bg-spinner").style.display = "none";
+    swal("Opss !", "This job requires you to be between 18 and 50 years old.", "info");
+    return false;
+  }
+  else if (email == ""){
+    document.getElementById("bg-spinner").style.display = "none";
+    swal("Opss !", "Email field cannot be empty.", "error");
+    return false;
+  }
+  else if (!(validateEmail4(email))){
+    document.getElementById("bg-spinner").style.display = "none";
+    document.getElementById('email4').value='';
+    swal("Opss !", "Put a valid email address.", "info");
+    return false;
+  }
+  else if (phone == ""){
+    document.getElementById("bg-spinner").style.display = "none";
+    swal("Opss !", "Phone field cannot be empty.", "error");
+    return false;
+  }
+  else if (address == ""){
+    document.getElementById("bg-spinner").style.display = "none";
+    swal("Opss !", "Address field cannot be empty.", "error");
+    return false;
+  }
+  else if (experience == ""){
+    document.getElementById("bg-spinner").style.display = "none";
+    swal("Opss !", "Experience field cannot be empty.", "error");
+    return false;
+  }
+  else if (skills == ""){
+    document.getElementById("bg-spinner").style.display = "none";
+    swal("Opss !", "Skills field cannot be empty.", "error");
+    return false;
+  }
+  else if (file == ""){
+    document.getElementById("bg-spinner").style.display = "none";
+    swal("Opss !", "File field cannot be empty.", "error");
+    return false;
+  }
+  else {
+    return true;
+  }
+}
+
 // 3) Maximum allowed upload size
 $(document).ready(function(){
   $("#file, #file2, #file3").bind('change', function(){
