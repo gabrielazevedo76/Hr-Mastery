@@ -215,9 +215,58 @@ def email_fullstack(request):
             messages.success(request, 'Fullstack resume sent successfully!')
             return HttpResponseRedirect('/')
 
+# Function to send intern form
+
+def email_intern(request):
+
+    # Check if email exist in DB
+    email = request.POST['email']
+
+    if Registered_email.objects.filter(email=email).exists():
+        messages.error(request, "We already have your resume in our DB!")
+        return HttpResponseRedirect("/opportunities")
+    else:
+        if request.method == "POST":
+            name = request.POST.get('name')
+            age = request.POST.get('age')
+            email = request.POST.get('email')
+            phone = request.POST.get('phone')
+            address = request.POST.get('address')
+            experience = request.POST.get('experience')
+            skills = request.POST.get('skills')
+
+            # Register inside DB
+            contact = Registered_email()
+            contact.email = email
+            contact.save()
+
+            template = loader.get_template('resume_form.txt')
+            context = {
+                'name': name,
+                'age': age,
+                'email': email,
+                'phone': phone,
+                'address': address,
+                'experience': experience,
+                'skills': skills,
+            }
+            message = template.render(context)
+            email = EmailMultiAlternatives(
+                "Intern - Candidate", message,
+                "Intern Opportunity",
+                ['bestofdjango@gmail.com', ]
+            )
+            email.content_subtype = 'html'
+            file = request.FILES['file']
+            email.attach(file.name, file.read(), file.content_type)
+            email.send()
+            messages.success(request, 'Intern resume sent successfully!')
+            return HttpResponseRedirect('/')
+
 # =================== BACKEND SECTION ===================
 
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
 @login_required(login_url="login")
 def backend(request):
-    return render(request, "backend.html")
+    total = Registered_email.objects.all().count()
+    return render(request, "backend.html", {'count': total})

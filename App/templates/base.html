@@ -93,6 +93,9 @@
     {% include 'modals/others/msgSupport.html' %}
     {% include 'modals/others/popSupport.html' %}
 
+    <!-- Backend -->
+    {% include 'modals/backend/candidates.html' %}
+
   </div> <!-- END // wrapper -->
 
   <!-- Offcanvas (sidebar) -->
@@ -263,6 +266,15 @@
       var skills3 = $("#skills3").val();
       var file3 = $("#file3").val();
 
+      var name4 = $("#name4").val();
+      var age4 = $("#age4").val();
+      var email4 = $("#email4").val();
+      var phone4 = $("#phone4").val();
+      var address4 = $("#address4").val();
+      var experience4 = $("#experience4").val();
+      var skills4 = $("#skills4").val();
+      var file4 = $("#file4").val();
+
       if( (name != '') &&  (age != '') && (email != '') && (phone != '') &&
       (address != '') && (experience != '') && (skills != '') && (file != ''))
       {
@@ -277,6 +289,11 @@
 
       if( (name3 != '') &&  (age3 != '') && (email3 != '') && (phone3 != '') &&
       (address3 != '') && (experience3 != '') && (skills3 != '') && (file3 != ''))
+      {
+        $('.close-modal').modal('hide');
+      }
+      if( (name4 != '') &&  (age4 != '') && (email4 != '') && (phone4 != '') &&
+      (address4 '') && (experience4 != '') && (skills4 != '') && (file4 != ''))
       {
         $('.close-modal').modal('hide');
       }
